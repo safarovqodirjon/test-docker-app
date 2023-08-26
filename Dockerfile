@@ -10,8 +10,7 @@ WORKDIR app/
 EXPOSE 8000
 
 
-RUN apt-get update &&\
-    apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         postgresql-client \
         libpq-dev && \
@@ -22,7 +21,7 @@ RUN apt-get update &&\
 RUN python3 -m venv /.venv/ &&\
     /.venv/bin/pip install --upgrade pip &&\
 
-    /.venv/bin/pip install -r requirements.txt && \
+    /.venv/bin/pip install -r requirements.txt
 
 
 USER django-user
